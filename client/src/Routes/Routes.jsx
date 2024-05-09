@@ -7,17 +7,22 @@ import MyBids from './../pages/myBIds/MyBids';
 import BidRequest from "../pages/bidRequest/BidRequest";
 import Login from './../pages/login/Login';
 import Register from './../pages/register/Register';
+//import PrivateRoutes from "../privateRoutes/PrivateRoutes";
+import ErrorPage from './../pages/Error/ErrorPage';
 
 
 export const  router=createBrowserRouter([
 
 
 
-{path:"/",
-element:<Main></Main>
+{  path:"/",
+ 
+element:<Main></Main>,
+errorElement:<ErrorPage></ErrorPage>
 ,children:[
 
-{path:'/',
+{//path:'/',
+    index:true,
     element:<Home></Home>
 },
 //login

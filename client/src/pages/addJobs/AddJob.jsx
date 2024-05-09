@@ -1,6 +1,28 @@
 import React from 'react'
 
 const AddJob = () => {
+
+
+//add job validation 
+const handleJob=(e)=>{
+//preventDEfault
+e.preventDefault()
+const form=e.target;
+const title=form.job_title.value;
+const  email=form.email.value;
+//select category
+const category=form.category.value;
+const min_price=parseFloat(form.min_price.value);
+const max_price=parseFloat(form.max_price.value);
+const description=form.description.value;
+const jobInfo={title,email,category,min_price,max_price,description}
+console.table(jobInfo)
+
+
+}
+
+
+
   return (
     <div>
     <div className='flex justify-center items-center min-h-[calc(100vh-306px)] my-12'>
@@ -9,7 +31,7 @@ const AddJob = () => {
         Post a Job
       </h2>
 
-      <form>
+      <form onSubmit={handleJob}>
         <div className='grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2'>
           <div>
             <label className='text-gray-700 ' htmlFor='job_title'>

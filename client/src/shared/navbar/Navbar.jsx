@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import logo  from '../../assets/img/logo.png'
 
 const Navbar = () => {
+//theeme
+const [theme,setTheme]=useState('light')
+
+//when i clcli the toggle button  the buttion wi be render 
+useEffect(()=>{
+
+localStorage.setItem('theme',theme)
+
+const getTheme=localStorage.getItem('theme')
+//domm
+document.querySelector('html').setAttribute('data-theme',getTheme)
+
+},[theme])
+
+
+const handleToggle=(e)=>{
+
+  if(e.target.checked){
+    setTheme('synthwave')
+  }else{
+    setTheme("light")
+  }
+
+}
+
   const links = (
     <div>
       <NavLink to="/addJob">
@@ -49,6 +75,8 @@ const Navbar = () => {
                 <div>Login</div>
               </li>
             </NavLink>
+
+            <input type="checkbox" className="toggle toggle-success mx-3 " onClick={handleToggle} />
           </ul>
 
           <div className="dropdown dropdown-end z-50">
@@ -61,7 +89,7 @@ const Navbar = () => {
                 <img
                   referrerPolicy="no-referrer"
                   alt="User Profile Photo"
-                  src=""
+                  src={logo}
                 />
               </div>
             </div>

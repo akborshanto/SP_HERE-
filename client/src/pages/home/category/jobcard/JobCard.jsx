@@ -1,6 +1,6 @@
 import React from 'react'
 
-const JobCard = () => {
+const JobCard = ({jobweb}) => {
   return (
     <div>
     <div className='w-full max-w-sm px-4 py-3 bg-white rounded-md shadow-md hover:scale-[1.05] transition-all'>
@@ -9,7 +9,7 @@ const JobCard = () => {
         Deadline: 20/12/2024
       </span>
       <span className='px-3 py-1 text-[8px] text-blue-800 uppercase bg-blue-200 rounded-full '>
-        Web Development
+
       </span>
     </div>
 
